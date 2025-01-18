@@ -20,21 +20,21 @@ Next step, just create a script, you can copy/paste the script of this repositor
 The lines to be changed are commented. The first "IF" is optionnal, but it will prevent the script from running if your TV is switched off.
 
 Once the script is created, you can call it from anywhere in home assistant like this : 
-
-action: script.send2tv (if send2tv is the name of your script, like me)
+```
+action: script.send2tv
 data:
   room: salon
   title: Motion
   message: Hey Dude, there's someone at your door
-  
+```  
 
 And that's it ! a nice message with the snapshot will be shown on the TV
 
 Important : 
 The camera.snapshot action uses a local path to store the files, so you have to set up the path in your configuration.yaml, something like this : 
-
+```
 homeassistant:
   allowlist_external_dirs:
     - "/config/www/cam"
-
+```
 Hope you enjoy it !
