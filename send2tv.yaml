@@ -1,0 +1,40 @@
+sequence:
+  - if:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: media_player.philips_tv_2 #Change for your TV media_player entity
+            state: "off"
+    then:
+      - variables:
+          file_img: _cam_{{ now().strftime("%d-%m-a-%H-%M-%S") }}.jpg
+      - data:
+          filename: /config/www/cam/{{ room }}{{ file_img }} # The path you declared on your configuration.yaml /allowlist_external_dirs 
+        target:
+          entity_id: >- # Here you put your rooms with each camera entity associated to the room
+            {% if room == "chambre" %}
+            camera.lechange_mediaprofile_channel1_mainstream_2 {% elif room ==
+            "etage2" %} camera.camera_etage_2_profile000 {% elif room ==
+            "salon" %} camera.camera_imou_salon_mediaprofile_channel1_substream1
+            {% elif room == "jardin" %} camera.jardin_profile_000 {% elif room
+            == "entreeG" %} camera.entree_2cams_profile_000 {% elif room ==
+            "entreeD" %} camera.camera_entree_droite {% elif room == "3D" %}
+            camera.p1s_01p00a3b2500947_camera   {% else %}
+            camera.camera_entree_droite {% endif %}
+        action: camera.snapshot
+      - action: notify.philips_tv # Here you put the name you choose when you set up your integration
+        data:
+          data: # These parameters can be changed, please follow the integration doc (https://www.home-assistant.io/integrations/nfandroidtv/)
+            duration: 10
+            position: top-left
+            fontsize: medium
+            transparency: 50%
+            timeout: 10
+            color: cyan
+            interrupt: 0
+            image:
+              path: /config/www/cam/{{ room }}{{ file_img }}
+          message: "{{ message }}"
+          title: "{{ title }}"
+alias: envoi msg TV philips
+description: ""
