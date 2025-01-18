@@ -15,7 +15,8 @@ Once installed, it will ask for your TV IP, just fill in the IP and gice it a na
 
 Once you have the integration installed, there is a new "action" that you can call, something like "notify.room_tv" if the name you gave is "room tv".
 
-Next step, just create a script, you can copy/paste the script of this repository called "send2tv". Just don't forget to change the rooms and the camera entity associated to each room. In my case, there is 6 cameras, but you just have to adapt it for your need.
+Next step, just create a script, you can copy/paste the script of this repository called "send2tv.yaml". Just don't forget to change the rooms and the camera entity associated to each room. In my case, there is 6 cameras, but you just have to adapt it for your need.
+The lines to be changed are commented. The first "IF" is optionnal, but it will prevent the script from running if your TV is closed.
 
 Once the script is created, you can call it from anywhere in home assistant like this : 
 
