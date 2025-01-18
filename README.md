@@ -1,12 +1,13 @@
 # snapshot2TV
-Display your camera snapshot on your android TV (or any android device)
+## Display your camera snapshot on your android TV (or any android device)
 
 You're watching TV and someone is at your door ? let's show a snapshot  of your camera (or just a message) directly on your TV (or any android device).
 There's a lot of ways to achieve this, but I'm gonna show you how to do it programmatically via a script that you can call from any automation/script in Home assistant, just by passing 3 variables to the script : 
+```
 - the room (so that it will show the snapshop of the camera in that room)
 - the title
 - the message.
-
+```
 So, from any automation, you can send a message or a snapshot directly to your TV just with 4 lines !
 
 First of all, you have to download (from the play store of your tv) an app called "Notification for android TV - it's free) and install it on your tv.
